@@ -102,3 +102,18 @@ for (var i = 0; i < finances.length; i++) {
 console.log("Number of months: ", monthsNumber);
 //This code calculates the length of the array finances and logs a numeric value
 console.log("Number of Months:", finances.length);
+
+//This code calculates the net amount in the finances array by assigning it to a variable result using a for loop to loop over each index = 1 in the arrays and joins the values until the end of the array length.
+var result = 0;
+for (var i = 0; i < finances.length; i++) {
+  result += finances[i][1];
+}
+console.log("Total: ", result);
+
+//unsuccessful attempt to execute the code
+
+// let result = finances.reduce((a, b) => {
+//   return b;
+// }, );
+
+// console.log(result);
