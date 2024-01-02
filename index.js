@@ -195,6 +195,29 @@ console.log("Average Change: ", averageNearest);
 //   la.push(b);
 //   ra.push(a);
 // }
+//This code calculates the greatest profits;
+let profits = finances[0][1];
+// assigning the variable monthProfits to the index[0] (the string value) of the array within finances index[0] (the first array of the object)
+let monthProfits = finances[0][0];
+// looping over the array starting from index = 1 until the end of the array
+for (let index = 1; index < finances.length; index++) {
+  //assigning the variable iterable (the value that is compared) with the same as the loop index;
+  let itterable = finances[index][1];
+  //if else statement for comparing every value within the finances;
+  if (profits < itterable) {
+    //when if statement becomes true the next line of code is executed and the loop statement continues with a new value for profits;
+    profits = itterable;
+    //the monthProfits value is changed so it matches the profits index for the array;
+    monthProfits = finances[index][0];
+  }
+}
+//the starter code has a different value from the example the following code should print Feb-2012 $ 1170593;
+console.log(
+  "Greatest Increase in Profits/Losses: ",
+  monthProfits,
+  "$",
+  profits
+);
 // assigning the variable losses to the index[1] (the numerical value) of the array within finances index[0] (the first array of the object)
 let losses = finances[0][1];
 // assigning the variable monthLosses to the index[0] (the string value) of the array within finances index[0] (the first array of the object)
@@ -203,7 +226,7 @@ let monthLosses = finances[0][0];
 for (let index = 1; index < finances.length; index++) {
   //assigning the variable iterable (the value that is compared) with the same as the loop index;
   let itterable = finances[index][1];
-  //if else statement for comparing every value within the object;
+  //if else statement for comparing every value within the finances;
   if (losses > itterable) {
     //when if statement becomes true the next line of code is executed and the loop statement continues with a new value for losses;
     losses = itterable;
