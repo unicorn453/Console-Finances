@@ -94,13 +94,14 @@ var finances = [
 //   console.log(months);
 // }
 // let totalMonths = finances.forEach(("string") => console.log(totalMonths);
-//This code counts each of the string value within the finances array.
-var monthsNumber = 0;
-for (var i = 0; i < finances.length; i++) {
-  monthsNumber++;
-}
-console.log("Number of months: ", monthsNumber);
-//This code calculates the length of the array finances and logs a numeric value
+
+//This code counts each of the string values within the finances array. It works but the next variant is a more optimal decision;
+// var monthsNumber = 0;
+// for (var i = 0; i < finances.length; i++) {
+//   monthsNumber++;
+// }
+// console.log("Number of months: ", monthsNumber);
+//This code calculates the length of the array finances and logs a numeric value (more optimal);
 console.log("Number of Months:", finances.length);
 
 //This code calculates the net amount in the finances array by assigning it to a variable result using a for loop to loop over each index = 1 in the arrays and joins the values until the end of the array length.
@@ -108,7 +109,7 @@ var result = 0;
 for (var i = 0; i < finances.length; i++) {
   result += finances[i][1];
 }
-console.log("Total: ", result);
+console.log("Total: $", result);
 
 //unsuccessful attempt to execute the code
 
@@ -116,4 +117,25 @@ console.log("Total: ", result);
 //   return b;
 // }, );
 
-// console.log(result);
+// assigning the variable totalChange to an empty array, where later I add the result;
+let totalChange = [];
+//using a for loop to find the total of the finances number value;
+for (let i = 1; i < finances.length; i++) {
+  let valueFirst = finances[i][1];
+  let valueSecond = finances[i - 1][1];
+  //For the variable result I used 'resu' and iterate over the array and substracted all the values on each other;
+  let resu = valueFirst - valueSecond;
+  //the following line pushes the result of each substraction into an array;
+  totalChange.push(resu);
+}
+//the variable total is numeric value to store the addition of all values in the resu array;
+var total = 0;
+for (var index = 0; index < totalChange.length; index++) {
+  //addition of the values stored in the total
+  total += totalChange[index];
+}
+//devision of the result total on the number of months to find the average;
+let averageChange = total / (finances.length - 1);
+//printing to the nearest 100th by using toFixed method
+averageNearest = averageChange.toFixed(2);
+console.log("Average Change: ", averageNearest);
