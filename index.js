@@ -87,7 +87,7 @@ var finances = [
   ["Feb-2017", 671099],
 ];
 
-//This is an example of code that was not working fo the number of months.
+//This is an example of code that was not working for the number of months.
 // let months = 0;
 // for (let index = 0; index < finances.length; index++) {
 //   months += finances[[index]];
@@ -139,3 +139,77 @@ let averageChange = total / (finances.length - 1);
 //printing to the nearest 100th by using toFixed method
 averageNearest = averageChange.toFixed(2);
 console.log("Average Change: ", averageNearest);
+//This is an example of code that was not working for calculating the losses(until line 197)
+// function compare(a, b) {
+//   for (let index = 0; index < finances.length; index++) {
+//     let La = [];
+//     let Ra = [];
+//     a = finances[i][1];
+//     b = finances[i][2];
+//     if (a > b) {
+//       La.push(a);
+//     } else if (a < b) {
+//       Ra.push(a);
+//     }
+//   }
+// }
+// console.log(La, Ra);
+// for (const iterator of finances) {
+//   if ([1] < [2]) {
+//     for (let index = 0; index < finances.length; index++) {
+//       const small = [];
+//       small.push([i]);
+//     }
+//   } else if (a > b) {
+//     for (let index = 0; index < finances.length; index++) {
+//       const big = a;
+//     }
+//     console.log(small, big);
+//   }
+// }
+// function compare(a, b) {
+//   let la = [];
+//   let ra = [];
+//   if (a < b) {
+//     la.push(a);
+//     ra.push(b);
+//   } else {
+//     la.push(b);
+//     ra.push(a);
+//   }
+// }
+// let a = finances[0];
+// let b = finances[1];
+// var a = 0;
+// for (var i = 0; i < finances.length; i++) {
+//   a = finances[i];
+// }
+// var b = 0;
+// for (var i = 1; i < finances.length; i++) {
+//   b = finances[i];
+// }
+// if (a < b) {
+//   la.push(a);
+//   ra.push(b);
+// } else {
+//   la.push(b);
+//   ra.push(a);
+// }
+// assigning the variable losses to the index[1] (the numerical value) of the array within finances index[0] (the first array of the object)
+let losses = finances[0][1];
+// assigning the variable monthLosses to the index[0] (the string value) of the array within finances index[0] (the first array of the object)
+let monthLosses = finances[0][0];
+// looping over the array starting from index = 1 until the end of the array
+for (let index = 1; index < finances.length; index++) {
+  //assigning the variable iterable (the value that is compared) with the same as the loop index;
+  let itterable = finances[index][1];
+  //if else statement for comparing every value within the object;
+  if (losses > itterable) {
+    //when if statement becomes true the next line of code is executed and the loop statement continues with a new value for losses;
+    losses = itterable;
+    //the monthLosses value is changed so it matches the losses index for the array;
+    monthLosses = finances[index][0];
+  }
+}
+//the starter code has a different value from the example the following code should print 'Sep-2013', -1196225
+console.log("Greatest Decrease in Profits/Losses: ", monthLosses, "$", losses);
