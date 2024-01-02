@@ -5,6 +5,7 @@
 The project consists of a JavaScript file that contains financial information in the form of arrays with two fields: Date and Profit/Losses. When opened in the console using inspect or dev tools, you will be able to see the results of a created code for analyzing the financial records of a company from a provided dataset.
 
 Link to the deployed project:
+https://unicorn453.github.io/Console-Finances/
 
 When opened the page should look like this:
 ![Screenshot of the project page](./assets/screenshot.png)
